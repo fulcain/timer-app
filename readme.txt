@@ -2,7 +2,7 @@
 
 enter an amount in what ever input you want and the app starts counting down
 
-either press start or click enter
+press start
 
 app will make a sound when time is up
 
