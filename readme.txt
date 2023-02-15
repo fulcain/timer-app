@@ -2,6 +2,8 @@
 
 enter an amount in what ever input you want and the app starts counting down
 
+either press start or click enter
+
 app will make a sound when time is up
 
 you can press reset button to reset the app
