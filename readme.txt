@@ -9,3 +9,5 @@ you can press reset button to reset the app
 hours maximum amount = 99
 minutes maximum amount = 60
 seconds maximum amount = 60
+
+enjoy!
