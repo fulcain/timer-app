@@ -37,12 +37,6 @@ let allInputs = document.querySelectorAll('input'),
 
 // events    
 
-// keyboard
-window.addEventListener('keydown', (e) =>{
-   if(e.key == 'Enter'){
-    startTimer()
-   }
-})
 // calls a function on click event
 startBtn.addEventListener("click", () => {
     startTimer()
