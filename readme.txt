@@ -19,4 +19,3 @@ how to open the app (if you can't use https://fulcain.github.io/timer-app)
 1- open the index.html file
 2- book mark it for a quick access
 enjoy!
-enjoy!
