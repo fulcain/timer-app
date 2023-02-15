@@ -1,8 +1,9 @@
 // variables
 
-
-// minute element
-let minuteEl = document.querySelector("#minutes"),
+// all inputs
+let allInputs = document.querySelectorAll('input'),
+    // minute element
+    minuteEl = document.querySelector("#minutes"),
 
     // second element
     secondEl = document.querySelector('#seconds'),
@@ -10,6 +11,12 @@ let minuteEl = document.querySelector("#minutes"),
     // hour element
     hourEl = document.querySelector('#hours'),
 
+    // pattern obj
+    pattern = {
+        hours: /^[0-9]{2}$/,
+        minutes: /^[0-6]{2}$/,
+        seconds: /^[0-6]{2}$/
+    },
     // seconds
     seconds = 0,
 
@@ -32,6 +39,21 @@ startBtn.addEventListener("click", () => {
     startTimer()
 })
 
+// all inputs 
+// calls validateForms function
+allInputs.forEach(input => {
+    input.addEventListener('blur', () => {
+        // minutes and seconds
+        if (input.attributes.id.value == 'minutes' || input.attributes.id.value == 'seconds') {
+            validateForms(input, "min is 0 and max is 60", 60)
+        }
+
+        // hours
+        else if (input.attributes.id.value == 'hours') {
+            validateForms(input, "min is 0 and max is 99", 99)
+        }
+    })
+})
 // functions
 
 // TITLE: start the timer Function
@@ -53,6 +75,8 @@ function startTimer() {
         // calls the function every 1 second 
         IntervalOnFunction = setInterval(timerFunction, 1000);
         timerFunction()
+
+        validate()
     } else {
         alert("At least enter one value!")
     }
@@ -81,7 +105,7 @@ function timerFunction() {
 // TITLE: restart function
 // calls the reload function
 function restart() {
-   return window.location.reload()
+    return window.location.reload()
 }
 
 
@@ -163,13 +187,34 @@ function addZeroToOneDigit(element) {
 }
 
 // TITLE: play a sound on timer end
+// restarts the interval on IntervalOnFunction
+// calls the restart function and set 7s timeout to it
+// play alarmEl with .1 volume
 function timerEnd() {
     if (minuteEl.value == 0 && hourEl.value == 0 && secondEl.value == 0) {
-        setTimeout(restart ,10000)
+        setTimeout(restart, 7000)
         // clear the interval
         window.clearInterval(IntervalOnFunction)
-        alarmEl.volume = .3
+        alarmEl.volume = .1
         alarmEl.play()
     }
 }
 
+
+
+// TITLE: validate forms 
+// checks if the regex value in the pattern objs matches the input value
+// if it does't match, sends an alert and sets the value to its maxed value
+// parameters:
+// input = input
+// alertMessage = the message that is sent when the value is entered wrong
+// inputMaxValue = the maximum amount of input value
+function validateForms(input, alertMessage, inputMaxValue) {
+    if (input.value != '') {
+        if (input.value.match(pattern[input.attributes.id.value])) {
+        } else {
+            alert(alertMessage)
+            input.value = inputMaxValue
+        }
+    }
+}
