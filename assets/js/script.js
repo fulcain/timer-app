@@ -50,11 +50,13 @@ function startTimer() {
 // TITLE: restart function
 // calls the reload function
 function restart() {
+    
     // restart button
     restartBtn.addEventListener("click", () => {
         window.location.reload()
     })
 }
+
 // TITLE: timer function
 // changes the display of start button and restart button
 // changes the display of minute and second elements 
