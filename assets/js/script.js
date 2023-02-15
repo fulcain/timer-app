@@ -199,6 +199,7 @@ function addZeroToOneDigit(element) {
 // play alarmEl with .1 volume
 function timerEnd() {
     if (minuteEl.value == 0 && hourEl.value == 0 && secondEl.value == 0) {
+        backgroundCircleEl.classList.remove('animate')
         setTimeout(restart, 7000)
         // clear the interval
         window.clearInterval(IntervalOnFunction)
