@@ -1,10 +1,14 @@
 // variables
 
+
 // minute element
 let minuteEl = document.querySelector("#minutes"),
 
     // second element
     secondEl = document.querySelector('#seconds'),
+
+    // hour element
+    hourEl = document.querySelector('#hours'),
 
     // seconds
     seconds = 0,
@@ -14,6 +18,9 @@ let minuteEl = document.querySelector("#minutes"),
 
     // restart btn
     restartBtn = document.querySelector('#restart'),
+
+    // alarm el
+    alarmEl = document.querySelector('#alarm'),
 
     // interval function
     IntervalOnFunction
@@ -34,28 +41,21 @@ startBtn.addEventListener("click", () => {
 // calls decreaseByOne function
 function startTimer() {
 
-    if (minuteEl.value != '' || secondEl.value != '') {
-
+    if (minuteEl.value != '' || secondEl.value != '' || hourEl.value != '') {
         // change button style
         startBtn.style.display = 'none'
         restartBtn.style.display = 'flex'
-        restart()
+
+        // restart button
+        restartBtn.addEventListener("click", () => {
+            restart()
+        })
         // calls the function every 1 second 
         IntervalOnFunction = setInterval(timerFunction, 1000);
         timerFunction()
     } else {
-        alert("At least enter a value!")
+        alert("At least enter one value!")
     }
-}
-
-// TITLE: restart function
-// calls the reload function
-function restart() {
-
-    // restart button
-    restartBtn.addEventListener("click", () => {
-        window.location.reload()
-    })
 }
 
 // TITLE: timer function
@@ -63,27 +63,60 @@ function restart() {
 // changes the display of minute and second elements 
 // calls the decreaseByOne function
 // calls changeElementDisplay function
+// calls hourFunction()
+// calls minuteFunction()
 function timerFunction() {
-
-    if (secondEl.value == 0) {
-        decreaseByOne(minuteEl)
-        changeElementDisplay(secondEl, 60)
-        if (minuteEl.value == -1) {
-            changeElementDisplay(minuteEl, '00')
-            changeElementDisplay(secondEl, '00')
-            window.clearInterval(IntervalOnFunction)
-        }
-    }
-    else if (secondEl.value == '') {
-        changeElementDisplay(secondEl, 60)
-    }
-
+    hourFunction()
+    minuteFunction()
     // if the second is 0 the second wont be decreased
-    if (secondEl.value != 0){
+    if (secondEl.value != 0) {
         decreaseByOne(secondEl)
     }
     addZeroToOneDigit(secondEl)
     addZeroToOneDigit(minuteEl)
+    addZeroToOneDigit(hourEl)
+    timerEnd()
+}
+
+// TITLE: restart function
+// calls the reload function
+function restart() {
+   return window.location.reload()
+}
+
+
+// TITLE: hour function
+function hourFunction() {
+
+    // if second and minute are 0
+    if (secondEl.value == '' && minuteEl.value == '') {
+        decreaseByOne(hourEl)
+        changeElementDisplay(minuteEl, 59)
+        changeElementDisplay(secondEl, 60)
+    }
+
+    //  if second and minute are 0 and hour still has some value
+    else if (secondEl.value == 1 && minuteEl.value == 0 && hourEl.value != 0) {
+        decreaseByOne(hourEl)
+    }
+}
+
+// TITLE: minute function
+function minuteFunction() {
+
+    // if seconds is 0
+    if (secondEl.value == 0) {
+        decreaseByOne(minuteEl)
+        changeElementDisplay(secondEl, 60)
+
+        // if seconds is 0 and minute value is 0
+        if (minuteEl.value == -1) {
+
+            // set displays to 00
+            changeElementDisplay(minuteEl, '00')
+            changeElementDisplay(secondEl, '00')
+        }
+    }
 }
 
 // TITLE: decrease the amount by 1
@@ -128,3 +161,15 @@ function addZeroToOneDigit(element) {
         element.value = "00"
     }
 }
+
+// TITLE: play a sound on timer end
+function timerEnd() {
+    if (minuteEl.value == 0 && hourEl.value == 0 && secondEl.value == 0) {
+        setTimeout(restart ,10000)
+        // clear the interval
+        window.clearInterval(IntervalOnFunction)
+        alarmEl.volume = .3
+        alarmEl.play()
+    }
+}
+
