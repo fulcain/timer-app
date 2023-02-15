@@ -35,9 +35,10 @@ startBtn.addEventListener("click", () => {
 function startTimer() {
 
     if (minuteEl.value != '' || secondEl.value != '') {
-        if (minuteEl.value != '') {
-            decreaseByOne(minuteEl)
-        }
+
+        // change button style
+        startBtn.style.display = 'none'
+        restartBtn.style.display = 'flex'
         restart()
         // calls the function every 1 second 
         IntervalOnFunction = setInterval(timerFunction, 1000);
@@ -50,7 +51,7 @@ function startTimer() {
 // TITLE: restart function
 // calls the reload function
 function restart() {
-    
+
     // restart button
     restartBtn.addEventListener("click", () => {
         window.location.reload()
@@ -64,27 +65,25 @@ function restart() {
 // calls changeElementDisplay function
 function timerFunction() {
 
-    // change button style
-    startBtn.style.display = 'none'
-    restartBtn.style.display = 'flex'
-
     if (secondEl.value == 0) {
         decreaseByOne(minuteEl)
-        changeElementDisplay(secondEl, 4)
-
-    }
-    else if (minuteEl.value == -1) {
-        changeElementDisplay(minuteEl, '00')
-        changeElementDisplay(secondEl, '00')
-        window.clearInterval(IntervalOnFunction)
+        changeElementDisplay(secondEl, 60)
+        if (minuteEl.value == -1) {
+            changeElementDisplay(minuteEl, '00')
+            changeElementDisplay(secondEl, '00')
+            window.clearInterval(IntervalOnFunction)
+        }
     }
     else if (secondEl.value == '') {
-        changeElementDisplay(secondEl, 4)
+        changeElementDisplay(secondEl, 60)
     }
-    decreaseByOne(secondEl)
+
+    // if the second is 0 the second wont be decreased
+    if (secondEl.value != 0){
+        decreaseByOne(secondEl)
+    }
     addZeroToOneDigit(secondEl)
     addZeroToOneDigit(minuteEl)
-
 }
 
 // TITLE: decrease the amount by 1
