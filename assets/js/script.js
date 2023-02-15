@@ -30,7 +30,10 @@ let allInputs = document.querySelectorAll('input'),
     alarmEl = document.querySelector('#alarm'),
 
     // interval function
-    IntervalOnFunction
+    IntervalOnFunction,
+    // backgroundCircle
+    backgroundCircleEl = document.querySelector('#background-circle')
+
 
 // events    
 
@@ -71,7 +74,7 @@ function startTimer() {
         // change button style
         startBtn.style.display = 'none'
         restartBtn.style.display = 'flex'
-
+        backgroundCircleEl.classList.add("animate")
         // restart button
         restartBtn.addEventListener("click", () => {
             restart()
