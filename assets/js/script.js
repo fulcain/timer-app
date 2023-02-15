@@ -45,11 +45,15 @@ allInputs.forEach(input => {
     input.addEventListener('blur', () => {
         // minutes and seconds
         if (input.attributes.id.value == 'minutes' || input.attributes.id.value == 'seconds') {
+            addZeroToOneDigit(secondEl)
+            addZeroToOneDigit(minuteEl)
+
             validateForms(input, "min is 0 and max is 60", 60)
         }
 
         // hours
         else if (input.attributes.id.value == 'hours') {
+            addZeroToOneDigit(hourEl)
             validateForms(input, "min is 0 and max is 99", 99)
         }
     })
