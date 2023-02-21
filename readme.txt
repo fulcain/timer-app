@@ -1,17 +1,24 @@
 how does the app works:
 
-enter an amount in what ever input you want and the app starts counting down
+// timer
 
-press start
+- enter an amount in what ever input you want and the app starts counting down
+- press start
+- app will make a sound when time is up
+- you can press reset button to reset the app
 
-app will make a sound when time is up
+- hours maximum amount = 99
+- minutes maximum amount = 60
+- seconds maximum amount = 60
 
-you can press reset button to reset the app
+// stop watch
 
-hours maximum amount = 99
-minutes maximum amount = 60
-seconds maximum amount = 60
+- press start
+- you can pause/resume
+- set the current time 
+- and restart to restart the app
 
+by double clicking X
 Installation:
 click on code and download zip
 

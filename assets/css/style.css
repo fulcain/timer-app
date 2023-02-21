@@ -6,6 +6,7 @@
     --color-2: #010153;
     --color3: #e9e9e9;
     --color-4: #18d4a5;
+    --color-5:#020281;
 }
 
 /* font import */
@@ -30,7 +31,6 @@
 * {
     user-select: none;
     font-family: Ubuntu;
-    pointer-events: visibleFill;
 }
 
 body {
@@ -57,6 +57,13 @@ section {
     margin-block: 50px;
 }
 
+.hide{
+    display: none !important;
+}
+
+.currentPage{
+    background-color: var(--color-5);
+}
 /* General END */
 
 
@@ -120,46 +127,100 @@ input::-webkit-inner-spin-button {
     color: var(--color3);
 }
 
-#restart {
-    display: none;
-}
-.animate{
+.animate {
     animation: shadow 1s infinite linear;
+}
+
+/* stopwatch spans */
+#control-button span{
+    color: #e9e9e9;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#control-button span:hover{
+    color: rgb(73, 73, 73);
+}
+
+/* setTimes */
+#setTimes{
+    color: var(--color3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+#setTimes ul {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#deleteLocalStorage{
+    cursor: pointer;
+}
+#deleteLocalStorage:hover{
+    color: red;
 }
 /* control section END */
 
-@keyframes shadow{
-    0%{
-        box-shadow:  0px 0px 0px 0px var(--color-4);
+/* navigation START */
+nav a {
+    text-decoration: none;
+    color: var(--color-4);
+    padding: 10px;
+    background-color: var(--color-2);
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: #6d6dec;
+    transform: scale(1.1);
+}
+
+/* navigation END */
+@keyframes shadow {
+    0% {
+        box-shadow: 0px 0px 0px 0px var(--color-4);
 
     }
-    50%{
-        box-shadow:  0px 0px 40px 0px var(--color-4);
+
+    50% {
+        box-shadow: 0px 0px 40px 0px var(--color-4);
         border-width: 25px;
     }
 }
+
 /* responsive */
 @media only screen and (max-width:500px) {
-    .container{
+    .container {
         width: 400px;
-    } 
-    #background-circle{
+    }
+
+    #background-circle {
         width: 350px;
         height: 350px;
     }
 }
+
 @media only screen and (max-width:375px) {
-    .container{
+    .container {
         width: 300px;
-    } 
-    #background-circle{
+    }
+
+    #background-circle {
         width: 270px;
         height: 270px;
 
     }
-    #timer{
+
+    #timer {
         font-size: 30px;
     }
+
     #timer-section input {
         font-size: 40px;
     }

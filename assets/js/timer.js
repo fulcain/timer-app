@@ -62,7 +62,10 @@ allInputs.forEach(input => {
     })
 })
 // functions
-
+// TITLE: elementDisplay
+function elementDisplay(el){
+    el.classList.toggle('hide')
+}
 // TITLE: start the timer Function
 // if the minuteEl value is not empty:
 // calls the timer Function
@@ -72,8 +75,8 @@ function startTimer() {
 
     if (minuteEl.value != '' || secondEl.value != '' || hourEl.value != '') {
         // change button style
-        startBtn.style.display = 'none'
-        restartBtn.style.display = 'flex'
+        elementDisplay(startBtn)
+        elementDisplay(restartBtn)
         backgroundCircleEl.classList.add("animate")
         // restart button
         restartBtn.addEventListener("click", () => {

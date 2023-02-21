@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- css links -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/css reset.css">
+    <!-- boxi icons -->
+    <link rel="stylesheet" href="../boxicons/css/boxicons.min.css">
+    <!-- icon -->
+    <link rel="icon" href="../images/timer-icon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopwatch</title>
+</head>
+
+<body>
+
+    <!-- container START-->
+    <div class="container">
+        <nav>
+            <a href="../../index.html">timer</a>
+            <a href="stopwatch.html" class="currentPage">stopwatch</a>
+        </nav>
+        <!-- status section END -->
+
+        <!-- timer section START -->
+        <section id="timer-section">
+            <!-- set -->
+            <div id="setTimes">
+                <span>times:</span>
+                <br>
+                <span id="deleteLocalStorage">X</span>
+                <ul></ul>
+            </div>
+            <div id="timer">
+                <p id="hours">00</p>
+                <span>:</span>
+                <p id="minutes">00</p>
+                <span>:</span>
+                <p id="seconds">00</p>
+                <span>:</span>
+                <p id="milliseconds">00</p>
+            </div>
+        </section>
+        <!-- timer section END-->
+
+        <!-- control section START -->
+        <section id="control-section">
+            <div id="control-button">
+                <i id="start" class='bx bx-play'></i>
+                <span class="hide" id="pause">pause</span>
+                <span class="hide" id="set">set</span>
+                <span id="restart" class="hide">restart</span>
+            </div>
+        </section>
+    </div>
+    <!-- container END -->
+    <!-- control section END -->
+    <!-- js link -->
+    <script defer src="../js/stopwatch.js"></script>
+</body>
+
+</html>
