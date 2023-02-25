@@ -172,26 +172,8 @@ function changeElementDisplay(element, changeTo) {
 // parameters:
 // element = the element value 
 function addZeroToOneDigit(element) {
-    if (element.value == 9) {
-        element.value = "09"
-    } else if (element.value == 8) {
-        element.value = "08"
-    } else if (element.value == 7) {
-        element.value = "07"
-    } else if (element.value == 6) {
-        element.value = "06"
-    } else if (element.value == 5) {
-        element.value = "05"
-    } else if (element.value == 4) {
-        element.value = "04"
-    } else if (element.value == 3) {
-        element.value = "03"
-    } else if (element.value == 2) {
-        element.value = "02"
-    } else if (element.value == 1) {
-        element.value = "01"
-    } else if (element.value == 0) {
-        element.value = "00"
+    if (element.value < 10 && element.value != ''){
+        element.value = ('0' + element.value).slice(-2)
     }
 }
 
