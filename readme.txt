@@ -1,6 +1,6 @@
-how does the app works:
+# how does the app works:
 
-// timer
+# timer
 
 - enter an amount in what ever input you want and the app starts counting down
 - press start
@@ -11,7 +11,7 @@ how does the app works:
 - minutes maximum amount = 60
 - seconds maximum amount = 60
 
-// stop watch
+# stop watch
 
 - press start
 - you can pause/resume
@@ -19,7 +19,8 @@ how does the app works:
 - and restart to restart the app
 
 by double clicking X
-Installation:
+
+# Installation
 click on code and download zip
 
 how to open the app (if you can't use https://fulcain.github.io/timer-app)
