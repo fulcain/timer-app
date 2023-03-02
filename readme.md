@@ -17,9 +17,7 @@
 - you can pause/resume
 - set the current time 
 - and restart to restart the app
-
-by double clicking X
-
+- 
 # Installation
 click on code and download zip
 
