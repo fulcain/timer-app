@@ -1,5 +1,3 @@
-# how does the app works:
-
 # timer
 
 - enter an amount in what ever input you want and the app starts counting down
