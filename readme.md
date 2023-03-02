@@ -17,11 +17,11 @@
 - you can pause/resume
 - set the current time 
 - and restart to restart the app
-- 
-# Installation
-click on code and download zip
 
-how to open the app (if you can't use https://fulcain.github.io/timer-app)
-1- open the index.html file
-2- book mark it for a quick access
-enjoy!
+# Installation
+- if you can't use https://fulcain.github.io/timer-app
+
+- click on code and download zip
+- open the index.html file
+- book mark it for a quick access
+- enjoy!
