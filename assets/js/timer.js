@@ -26,6 +26,9 @@ let allInputs = document.querySelectorAll('input'),
     // restart btn
     restartBtn = document.querySelector('#restart'),
 
+    // pause button
+    pauseBtn = document.querySelector('#pause'),
+
     // alarm el
     alarmEl = document.querySelector('#alarm'),
 
@@ -42,6 +45,8 @@ startBtn.addEventListener("click", () => {
     startTimer()
 })
 
+// pause button
+pauseBtn.addEventListener("click", pause)
 // all inputs 
 // calls validateForms function
 allInputs.forEach(input => {
@@ -63,7 +68,7 @@ allInputs.forEach(input => {
 })
 // functions
 // TITLE: elementDisplay
-function elementDisplay(el){
+function elementDisplay(el) {
     el.classList.toggle('hide')
 }
 // TITLE: start the timer Function
@@ -77,6 +82,7 @@ function startTimer() {
         // change button style
         elementDisplay(startBtn)
         elementDisplay(restartBtn)
+        elementDisplay(pauseBtn)
         backgroundCircleEl.classList.add("animate")
         // restart button
         restartBtn.addEventListener("click", () => {
@@ -172,9 +178,30 @@ function changeElementDisplay(element, changeTo) {
 // parameters:
 // element = the element value 
 function addZeroToOneDigit(element) {
-    if (element.value < 10 && element.value != ''){
+    if (element.value < 10 && element.value != '') {
         element.value = ('0' + element.value).slice(-2)
     }
+}
+
+// TITLE: pause function
+// paused the timer on click
+function pause() {
+    // if button has pause button
+    if (pauseBtn.classList.contains("bx-pause")) {
+        pauseBtn.classList.remove("bx-pause")
+        pauseBtn.classList.add("bx-play")
+        clearInterval(IntervalOnFunction)
+        backgroundCircleEl.classList.remove("animate")
+    }
+    
+    // if button doesn't have pause button
+    else if (pauseBtn.classList.contains("bx-play")){
+        pauseBtn.classList.remove("bx-play")
+        pauseBtn.classList.add("bx-pause")
+        backgroundCircleEl.classList.add("animate")
+        IntervalOnFunction = setInterval(timerFunction, 1000)
+    }
+
 }
 
 // TITLE: play a sound on timer end
