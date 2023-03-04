@@ -6,7 +6,7 @@
     --color-2: #010153;
     --color3: #e9e9e9;
     --color-4: #18d4a5;
-    --color-5:#020281;
+    --color-5: #020281;
 }
 
 /* font import */
@@ -57,13 +57,14 @@ section {
     margin-block: 50px;
 }
 
-.hide{
+.hide {
     display: none !important;
 }
 
-.currentPage{
+.currentPage {
     background-color: var(--color-5);
 }
+
 /* General END */
 
 
@@ -132,25 +133,26 @@ input::-webkit-inner-spin-button {
 }
 
 /* stopwatch spans */
-#control-button span{
+#control-button span {
     color: #e9e9e9;
     font-weight: bold;
     cursor: pointer;
     margin-left: 10px;
 }
 
-#control-button span:hover{
+#control-button span:hover {
     color: rgb(73, 73, 73);
 }
 
 /* setTimes */
-#setTimes{
+#setTimes {
     color: var(--color3);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
 }
+
 #setTimes ul {
     margin-top: 10px;
     display: flex;
@@ -159,12 +161,15 @@ input::-webkit-inner-spin-button {
     align-items: center;
     gap: 10px;
 }
-#deleteLocalStorage{
+
+#deleteLocalStorage {
     cursor: pointer;
 }
-#deleteLocalStorage:hover{
+
+#deleteLocalStorage:hover {
     color: red;
 }
+
 /* control section END */
 
 /* navigation START */
@@ -204,6 +209,15 @@ nav a:hover {
         width: 350px;
         height: 350px;
     }
+
+    #timer {
+        font-size: 30px;
+    }
+
+    #timer-section input {
+        font-size: 30px;
+        width: 50px;
+    }
 }
 
 @media only screen and (max-width:375px) {
@@ -217,12 +231,4 @@ nav a:hover {
 
     }
 
-    #timer {
-        font-size: 20px;
-    }
-
-    #timer-section input {
-        font-size: 20px;
-        width: 40px;
-    }
 }
