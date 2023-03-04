@@ -218,10 +218,11 @@ nav a:hover {
     }
 
     #timer {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     #timer-section input {
-        font-size: 40px;
+        font-size: 20px;
+        width: 40px;
     }
 }
