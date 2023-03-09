@@ -17,7 +17,7 @@
 - and restart to restart the app
 
 # Installation
-- if you can't use[timer-app github page](https://fulcain.github.io/timer-app)
+- if you can't use [timer-app github page](https://fulcain.github.io/timer-app)
 
 - click on code and download zip
 - open the index.html file
