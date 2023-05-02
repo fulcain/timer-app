@@ -67,7 +67,6 @@ section {
 
 /* General END */
 
-
 /* timer section START */
 
 /* timer section inputs */
@@ -87,12 +86,17 @@ section {
 }
 
 /* disabling input arrows */
+
+/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 
 /* background circle */
 #background-circle {
@@ -103,7 +107,6 @@ input::-webkit-inner-spin-button {
     width: 500px;
     height: 500px;
     border: 15px solid var(--color-4);
-
 }
 
 /* timer */
@@ -190,7 +193,6 @@ nav a:hover {
 @keyframes shadow {
     0% {
         box-shadow: 0px 0px 0px 0px var(--color-4);
-
     }
 
     50% {
@@ -200,7 +202,7 @@ nav a:hover {
 }
 
 /* responsive */
-@media only screen and (max-width:500px) {
+@media only screen and (max-width: 500px) {
     .container {
         width: 400px;
     }
@@ -220,7 +222,7 @@ nav a:hover {
     }
 }
 
-@media only screen and (max-width:375px) {
+@media only screen and (max-width: 375px) {
     .container {
         width: 300px;
     }
@@ -228,7 +230,5 @@ nav a:hover {
     #background-circle {
         width: 270px;
         height: 270px;
-
     }
-
 }
