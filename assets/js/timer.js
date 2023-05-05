@@ -40,6 +40,9 @@ let allInputs = document.querySelectorAll('input'),
 
 // events    
 
+document.addEventListener("DOMContentLoaded", () => {
+    onlyNumbers()
+})
 // calls a function on click event
 startBtn.addEventListener("click", () => {
     startTimer()
@@ -56,7 +59,7 @@ allInputs.forEach(input => {
             addZeroToOneDigit(secondEl)
             addZeroToOneDigit(minuteEl)
 
-            validateForms(input, "min is 0 and max is 60", 60)
+            validateForms(input, "min is 0 and max is 60", 59)
         }
 
         // hours
@@ -96,7 +99,14 @@ function startTimer() {
         alert("At least enter one value!")
     }
 }
-
+// TITLE: onlyNumbers 
+function onlyNumbers() {
+    allInputs.forEach(input => {
+        input.addEventListener("input", () => {
+            input.value = input.value.replace(/^[^0-9]$/,'')
+        })
+    })
+}
 // TITLE: timer function
 // changes the display of start button and restart button
 // changes the display of minute and second elements 
@@ -193,9 +203,9 @@ function pause() {
         clearInterval(IntervalOnFunction)
         backgroundCircleEl.classList.remove("animate")
     }
-    
+
     // if button doesn't have pause button
-    else if (pauseBtn.classList.contains("bx-play")){
+    else if (pauseBtn.classList.contains("bx-play")) {
         pauseBtn.classList.remove("bx-play")
         pauseBtn.classList.add("bx-pause")
         backgroundCircleEl.classList.add("animate")
