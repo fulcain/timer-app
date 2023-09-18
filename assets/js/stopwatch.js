@@ -42,6 +42,7 @@ pauseBtn.addEventListener("click", pause);
 
 // set button
 setBtn.addEventListener("click", () => {
+    if (seconds < 1) return false;
 
     setTimeEl.innerHTML += `<li> ${addZeroToOneDigit({
         value: hours,
