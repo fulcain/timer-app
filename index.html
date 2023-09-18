@@ -1,63 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- css links -->
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/css reset.css" />
+        <!-- boxi icons -->
+        <link rel="stylesheet" href="assets/boxicons/css/boxicons.min.css" />
+        <!-- icon -->
+        <link rel="icon" href="assets/images/timer-icon.ico" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Timer</title>
+    </head>
 
-<head>
-    <!-- css links -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/css reset.css">
-    <!-- boxi icons -->
-    <link rel="stylesheet" href="assets/boxicons/css/boxicons.min.css">
-    <!-- icon -->
-    <link rel="icon" href="assets/images/timer-icon.ico">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timer</title>
-</head>
+    <body>
+        <!-- container START-->
+        <div class="container">
+            <!-- navigation -->
+            <nav>
+                <a href="index.html" class="currentPage">timer</a>
+                <a href="assets/html/stopwatch.html">stopwatch</a>
+            </nav>
+            <!-- status section END -->
 
-<body>
-
-    <!-- container START-->
-    <div class="container">
-
-        <!-- navigation -->
-        <nav>
-            <a href="index.html" class="currentPage">timer</a>
-            <a href="assets/html/stopwatch.html">stopwatch</a>
-        </nav>
-        <!-- status section END -->
-
-        <!-- timer section START -->
-        <section id="timer-section">
-            <div id="background-circle">
-                <div id="timer">
-                    <input type="number" id="hours" placeholder="00">
-                    <span>:</span>
-                    <input id="minutes" type="number" placeholder="00">
-                    <span>:</span>
-                    <input id="seconds" type="number" placeholder="00">
+            <!-- timer section START -->
+            <section id="timer-section">
+                <div id="background-circle">
+                    <div id="timer">
+                        <input
+                            type="number"
+                            id="hours"
+                            placeholder="00"
+                            class="inputs"
+                        />
+                        <span>:</span>
+                        <input
+                            id="minutes"
+                            type="number"
+                            placeholder="00"
+                            class="inputs"
+                        />
+                        <span>:</span>
+                        <input
+                            id="seconds"
+                            type="number"
+                            placeholder="00"
+                            class="inputs"
+                        />
+                    </div>
                 </div>
-            </div>
-        </section>
-        <!-- timer section END-->
+            </section>
+            <!-- timer section END-->
 
-        <!-- control section START -->
-        <section id="control-section">
-            <div id="control-button">
-                <i id="start" class='bx bx-play'></i>
-                <i id="restart" class='hide bx bx-reset'></i>
-                <i class='bx bx-pause hide' id="pause"></i>
-            </div>
-        </section>
-    </div>
-    <!-- container END -->
-    <!-- control section END -->
+            <!-- control section START -->
+            <section id="control-section">
+                <div id="control-button">
+                    <i id="start" class="bx bx-play"></i>
+                    <i id="restart" class="hide bx bx-reset"></i>
+                    <i class="bx bx-pause hide" id="pause"></i>
+                </div>
+            </section>
+        </div>
+        <!-- container END -->
+        <!-- control section END -->
 
-    <!-- audio START -->
-    <audio src="assets/audio/alarm.mp3" id="alarm"></audio>
-    <!-- audio END -->
-    <!-- js link -->
-    <script defer src="assets/js/timer.js"></script>
-</body>
-
+        <!-- audio START -->
+        <audio src="assets/audio/alarm.mp3" id="alarm"></audio>
+        <!-- audio END -->
+        <!-- js link -->
+        <script defer src="assets/js/timer.js"></script>
+    </body>
 </html>
