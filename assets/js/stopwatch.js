@@ -12,7 +12,7 @@ let minutes = 0;
 let hours = 0;
 let stopWatchInterval;
 const setTimeEl = document.querySelector("#setTimes ul");
-    setTimeArray = [],
+let currentTime = "";
 const deleteTimes = document.querySelector("#deleteLocalStorage");
 
 // Retrieve data from localStorage and set it inside timeEl
@@ -49,9 +49,9 @@ setBtn.addEventListener("click", () => {
         value: seconds,
     })}</li>`;
 
-    setTimeArray = setTimeEl.innerHTML;
+    currentTime = setTimeEl.innerHTML;
 
-    localStorage.setItem("times", JSON.stringify(setTimeArray));
+    localStorage.setItem("times", JSON.stringify(currentTime));
 });
 
 // delete times
