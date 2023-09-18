@@ -1,6 +1,5 @@
 // variables 
 let
-    startBtn = document.querySelector('#start'),
     restartBtn = document.querySelector('#restart'),
     pauseBtn = document.querySelector('#pause'),
     setBtn = document.querySelector('#set'),
@@ -24,7 +23,9 @@ let
 if (timesFromLocalStorage) {
     setTimeEl.innerHTML = timesFromLocalStorage
 }
-// start button
+
+const startBtn = document.querySelector('#start');
+// start button event
 startBtn.addEventListener("click", () => {
     elementDisplay(startBtn)
     elementDisplay(restartBtn)
@@ -37,32 +38,34 @@ startBtn.addEventListener("click", () => {
 })
 
 // restart button
-restartBtn.addEventListener("click", restart)
+restartBtn.addEventListener("click", () => {
+    location.reload()
+})
 
 // pause button
 pauseBtn.addEventListener("click", pause)
 
 // set button
-setBtn.addEventListener("click", setTime)
+setBtn.addEventListener("click", () => {
+    setTimeEl.innerHTML += `<li> ${hours}:${minutes}:${seconds}:${milliseconds}</li>`
+
+    setTimeArray = setTimeEl.innerHTML
+
+    localStorage.setItem("times", JSON.stringify(setTimeArray))
+
+    minTwoDigits(seconds, seconds)
+})
 
 // delete times 
 deleteTimes.addEventListener("dblclick", () => {
     localStorage.clear()
     setTimeEl.innerHTML = ""
 })
-// functions
 
 // TITLE: elementDisplay
 // toggles hide class name (display:none;)
 function elementDisplay(el) {
     el.classList.toggle('hide')
-}
-
-// TITLE: restart function
-// sets input values to empty
-// clears interval
-function restart() {
-    location.reload()
 }
 
 // TITLE: pause function
@@ -84,13 +87,7 @@ function pause() {
 
 }
 
-// TITLE: set time
-function setTime() {
-    setTimeEl.innerHTML += `<li> ${hours}:${minutes}:${seconds}:${milliseconds}</li>`
-    setTimeArray = setTimeEl.innerHTML
-    localStorage.setItem("times", JSON.stringify(setTimeArray))
-    minTwoDigits(seconds, seconds)
-}
+
 // TITLE: start stopwatch
 // if milliseconds are 1000 seconds will increase by one and milliseconds = 0
 // if seconds are 60 minutes will increase by one and seconds = 0
@@ -105,6 +102,7 @@ function startStopWatch() {
         seconds++
         changeElementDisplay(secondsInput, seconds)
     }
+
     if (seconds == 60) {
         seconds = 0
         changeElementDisplay(secondsInput, seconds)
@@ -129,31 +127,12 @@ function changeElementDisplay(element, changeTo) {
     element.innerHTML = changeTo
 }
 
-// TITLE: add a zero to one digit numbers
-// parameters:
-// element = the element value 
-function addZeroToOneDigit(element) {
-    if (element.innerHTML == 9) {
-        element.innerHTML = "09"
-    } else if (element.innerHTML == 8) {
-        element.innerHTML = "08"
-    } else if (element.innerHTML == 7) {
-        element.innerHTML = "07"
-    } else if (element.innerHTML == 6) {
-        element.innerHTML = "06"
-    } else if (element.innerHTML == 5) {
-        element.innerHTML = "05"
-    } else if (element.innerHTML == 4) {
-        element.innerHTML = "04"
-    } else if (element.innerHTML == 3) {
-        element.innerHTML = "03"
-    } else if (element.innerHTML == 2) {
-        element.innerHTML = "02"
-    } else if (element.innerHTML == 1) {
-        element.innerHTML = "01"
-    } else if (element.innerHTML == 0) {
-        element.innerHTML = "00"
+// Add zero to one digit number by passing their element as argument.
+const addZeroToOneDigit = (element) => {
+    if (element.innerHTML.length < 2) {
+        element.innerHTML = "0" + element.innerHTML.slice(-1)
     }
+    element.innerHTML = element.innerHTML
 }
 
 // TITLE: all one digits
