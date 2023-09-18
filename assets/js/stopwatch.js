@@ -1,25 +1,23 @@
 // variables
-let restartBtn = document.querySelector("#restart"),
-    pauseBtn = document.querySelector("#pause"),
-    setBtn = document.querySelector("#set"),
-    hoursInput = document.querySelector("#hours"),
-    minutesInput = document.querySelector("#minutes"),
-    secondsInput = document.querySelector("#seconds"),
-    millisecondsInput = document.querySelector("#milliseconds"),
-    milliseconds = 0,
-    seconds = 0,
-    minutes = 0,
-    hours = 0,
-    stopWatchInterval,
-    setTimeEl = document.querySelector("#setTimes ul"),
+const restartBtn = document.querySelector("#restart");
+const pauseBtn = document.querySelector("#pause");
+const setBtn = document.querySelector("#set");
+const hoursInput = document.querySelector("#hours");
+const minutesInput = document.querySelector("#minutes");
+const secondsInput = document.querySelector("#seconds");
+const millisecondsInput = document.querySelector("#milliseconds");
+let milliseconds = 0;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+let stopWatchInterval;
+const setTimeEl = document.querySelector("#setTimes ul");
     setTimeArray = [],
-    deleteTimes = document.querySelector("#deleteLocalStorage"),
-    timesFromLocalStorage = JSON.parse(localStorage.getItem("times")),
-    allParagraphs = document.querySelectorAll("#timer p");
+const deleteTimes = document.querySelector("#deleteLocalStorage");
 
-// events
-if (timesFromLocalStorage) {
-    setTimeEl.innerHTML = timesFromLocalStorage;
+// Retrieve data from localStorage and set it inside timeEl
+if (JSON.parse(localStorage.getItem("times"))) {
+    setTimeEl.innerHTML = JSON.parse(localStorage.getItem("times"));
 }
 
 const startBtn = document.querySelector("#start");
@@ -44,6 +42,7 @@ pauseBtn.addEventListener("click", pause);
 
 // set button
 setBtn.addEventListener("click", () => {
+
     setTimeEl.innerHTML += `<li> ${addZeroToOneDigit({
         value: hours,
     })}:${addZeroToOneDigit({ value: minutes })}:${addZeroToOneDigit({
